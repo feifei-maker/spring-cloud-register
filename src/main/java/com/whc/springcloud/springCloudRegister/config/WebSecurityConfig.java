@@ -19,6 +19,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        // Basic 认证是一种较为简单的 HTTP 认证方式，客户端通过明文（Base64编码格式）传输用户名和密码到服务端进行认证
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.NEVER);
         http.csrf().disable();
         http.authorizeRequests().anyRequest().authenticated().and().httpBasic();
